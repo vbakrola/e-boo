@@ -1,0 +1,23 @@
+[Unit]
+Description=Ubuntu Lab Manager Local PC Agent
+Documentation=https://github.com/lab/ubuntu-lab-manager
+After=network-online.target systemd-resolved.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/ubuntu-lab-manager
+ExecStart=/usr/bin/python3 /opt/ubuntu-lab-manager/agent/agent.py daemon --config /etc/ubuntu-lab-manager/agent.conf
+Restart=always
+RestartSec=5s
+KillMode=process
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ubuntu-lab-agent
+
+# Ensure systemd creates config folder if missing
+ConfigurationDirectory=ubuntu-lab-manager
+
+[Install]
+WantedBy=multi-user.target

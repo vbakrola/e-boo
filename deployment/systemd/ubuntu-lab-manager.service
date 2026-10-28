@@ -1,0 +1,20 @@
+[Unit]
+Description=Ubuntu Lab Manager Central Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/ubuntu-lab-manager
+EnvironmentFile=/opt/ubuntu-lab-manager/.env
+ExecStart=/opt/ubuntu-lab-manager/venv/bin/uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --workers 2
+Restart=always
+RestartSec=5s
+KillMode=process
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ubuntu-lab-manager
+
+[Install]
+WantedBy=multi-user.target

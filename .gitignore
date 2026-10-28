@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+test_lab.db
+
+# Databases & Backups (never commit active SQLite DB or backups to Git)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+backups/
+lab_hosts.txt
+
+# Sensitive certificates and credentials
+certs/
+agent.conf
+/etc/ubuntu-lab-manager/
+*.pem
+*.key
+*.crt
+
+# Node & Next.js
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+.next/
+out/
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS
+.DS_Store
+Thumbs.db
